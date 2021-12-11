@@ -1,5 +1,5 @@
-QT 		 += 	core gui
-TEMPLATE 	  = 	lib
+QT               += 	core gui
+TEMPLATE          = 	lib
 TARGET            =     components
 DEFINES          +=     QT_DEPRECATED_WARNINGS
 DESTDIR          +=     libs
@@ -10,18 +10,20 @@ OBJECTS_DIR       =     temp/objs
 CONFIG           +=     staticlib
 CONFIG           +=     warn_on
 CONFIG           +=     debug_and_release
+
 SRC_DIR           =     ./
-
-MK_LIBS_DIR       =     ../libs
-
-exists($$MK_LIBS_DIR) {
-        message("existing")
-    } else {
-            QMAKE_POST_LINK += $$quote(mkdir $${MK_LIBS_DIR} $$escape_expand(\n\t))
-    }
 
 for(var, SRC_DIR){
     SOURCES         += $$files($$join(var, , , /*.cpp) , true)
     HEADERS         += $$files($$join(var, , , /*.h)   , true)
     RESOURCES       += $$files($$join(var, , , /*.qrc) , true)
 }
+
+HEADERS += \
+    qtcomponentstextfield_internal.h
+
+SOURCES += \
+    qtcomponentstextfield_internal.cpp
+
+
+

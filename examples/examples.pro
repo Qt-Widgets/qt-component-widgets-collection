@@ -1,8 +1,8 @@
-QT 		 += 	core gui
-TEMPLATE 	  = 	app
-TARGET            =     example
+QT               += 	core gui
+TEMPLATE          = 	app
+TARGET            =     examples
 DEFINES          +=     QT_DEPRECATED_WARNINGS
-DESTDIR          +=     libs
+DESTDIR          +=     apps
 MOC_DIR           =     temp/moc
 UI_DIR            =     temp/uic
 RCC_DIR           =     temp/rcc
@@ -34,5 +34,7 @@ LIBS              +=                                            \
 for(var, SRC_DIR){
     SOURCES         += $$files($$join(var, , , /*.cpp) , true)
     HEADERS         += $$files($$join(var, , , /*.h)   , true)
+    FORMS           += $$files($$join(var, , , /*.ui)  , true)
     RESOURCES       += $$files($$join(var, , , /*.qrc) , true)
+    TRANSLATIONS    += $$files($$join(var, , , /*.ts)  , true)
 }
