@@ -1,3 +1,4 @@
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT               += 	core gui
 TEMPLATE          = 	app
 TARGET            =     examples
@@ -8,13 +9,12 @@ UI_DIR            =     temp/uic
 RCC_DIR           =     temp/rcc
 OBJECTS_DIR       =     temp/objs
 CONFIG           +=     warn_on
-CONFIG           +=     debug_and_release
 
 
 
 SRC_DIR           =     ./
 LIBS_INCLUDE_DIR  =     ../
-LIBS_SRC_DIR      =     ../libs
+LIBS_SRC_DIR      =     ../components/libs
 
 INCLUDEPATH       +=                                            \
                             $${LIBS_INCLUDE_DIR}/components
@@ -38,3 +38,6 @@ for(var, SRC_DIR){
     RESOURCES       += $$files($$join(var, , , /*.qrc) , true)
     TRANSLATIONS    += $$files($$join(var, , , /*.ts)  , true)
 }
+
+
+

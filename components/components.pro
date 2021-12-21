@@ -1,3 +1,4 @@
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT               += 	core gui
 TEMPLATE          = 	lib
 TARGET            =     components
@@ -9,7 +10,6 @@ RCC_DIR           =     temp/rcc
 OBJECTS_DIR       =     temp/objs
 CONFIG           +=     staticlib
 CONFIG           +=     warn_on
-CONFIG           +=     debug_and_release
 
 SRC_DIR           =     ./
 
@@ -19,11 +19,7 @@ for(var, SRC_DIR){
     RESOURCES       += $$files($$join(var, , , /*.qrc) , true)
 }
 
-HEADERS += \
-    qtcomponentstextfield_internal.h
 
-SOURCES += \
-    qtcomponentstextfield_internal.cpp
 
 
 
