@@ -13,6 +13,7 @@ CONFIG           +=     warn_on
 
 
 SRC_DIR           =     ./
+
 LIBS_INCLUDE_DIR  =     ../
 LIBS_SRC_DIR      =     ../components/libs
 
@@ -28,7 +29,6 @@ LIBS              +=                                            \
 
 LIBS              +=                                            \
                             -lcomponents
-
 
 
 for(var, SRC_DIR){

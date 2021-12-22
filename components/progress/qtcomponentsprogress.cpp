@@ -42,6 +42,13 @@ QColor QtComponentsProgress::frontColor() const
     return d->_frontColor;
 }
 
+QtComponentsProgress::QtComponentsProgress(QtComponentsProgressPrivate &d, QWidget *parent)
+    : QProgressBar(parent)
+    , d_ptr(&d)
+{
+    d_func()->init();
+}
+
 void QtComponentsProgress::paintEvent(QPaintEvent * event)
 {
     Q_UNUSED(event);
@@ -67,9 +74,15 @@ void QtComponentsProgress::paintEvent(QPaintEvent * event)
         brush.setColor(frontColor());
         painter.setBrush(brush);
 
-        qDebug()<<d->_delegate->offset();
-        painter.drawRect(d->_delegate->offset()*width()*2-width(), 0, width(), height());
-
+        if(0 == maximum())
+        {
+            painter.drawRect(d->_delegate->offset()*width()*2-width(), 0, width(), height());
+        }
+        else
+        {
+            qreal p = static_cast<qreal>(width())*(value()-minimum())/(maximum()-minimum());
+            painter.drawRect(0, 0, p, height());
+        }
     }
 }
 
@@ -78,7 +91,7 @@ void QtComponentsProgress::paintEvent(QPaintEvent * event)
 QtComponentsProgressPrivate::QtComponentsProgressPrivate(QtComponentsProgress *q)
     : q_ptr(q)
 {
-
+    Q_ASSERT(q);
 }
 
 QtComponentsProgressPrivate::~QtComponentsProgressPrivate()

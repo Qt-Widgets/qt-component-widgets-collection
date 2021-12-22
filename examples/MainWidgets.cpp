@@ -18,4 +18,11 @@ MainWidgets::~MainWidgets()
 void MainWidgets::on_horizontalSlider_valueChanged(int value)
 {
     ui->progressBar->setValue(value);
+    ui->progressBar_2->setValue(value);
+}
+
+void MainWidgets::on_pushButton_clicked()
+{
+    ui->progressBar->setMaximum(0);
+    ui->progressBar_2->setMaximum(0);
 }

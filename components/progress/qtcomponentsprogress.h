@@ -3,7 +3,6 @@
 
 #include <QProgressBar>
 
-
 class QtComponentsProgressPrivate;
 
 class QtComponentsProgress : public QProgressBar
@@ -27,8 +26,8 @@ public:
 
 
 protected:
-
-    const QScopedPointer<QtComponentsProgressPrivate> d_ptr;
+    QtComponentsProgress(QtComponentsProgressPrivate& d, QWidget* parent);
+    const QSharedPointer<QtComponentsProgressPrivate> d_ptr;
 
     virtual void paintEvent(QPaintEvent * event);
 
