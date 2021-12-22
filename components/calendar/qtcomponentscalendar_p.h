@@ -4,6 +4,7 @@
 #include <QtGlobal>
 
 class QtComponentsCalendarWidget;
+class QtC
 
 class QtComponentsCalendarWidgetPrivate
 {
