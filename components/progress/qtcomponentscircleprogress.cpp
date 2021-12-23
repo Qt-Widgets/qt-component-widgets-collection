@@ -1,8 +1,8 @@
-#include "qtcomponentscircleprogress.h"
+﻿#include "qtcomponentscircleprogress.h"
 #include "qtcomponentscircleprogress_p.h"
 #include "qtcomponentscircleprogress_internal.h"
 
-
+#include <QPoint>
 #include <QPainter>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
@@ -61,7 +61,7 @@ int QtComponentsCircleProgress::size() const
 QSize QtComponentsCircleProgress::sizeHint() const
 {
     Q_D(const QtComponentsCircleProgress);
-    const qreal s = d->_size + 6.25 + 8;
+    const qreal s = d->_size + 4.25 + 8;
     return QSize(s, s);
 }
 
@@ -71,7 +71,7 @@ void QtComponentsCircleProgress::paintEvent(QPaintEvent *event)
 
     Q_D(QtComponentsCircleProgress);
 
-    const qreal penWidth = 6.25;
+    const qreal penWidth = 4.25;
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -90,7 +90,7 @@ void QtComponentsCircleProgress::paintEvent(QPaintEvent *event)
 
     if(0 == maximum())
     {
-        painter.translate(width()/2, height()/2);
+        painter.translate(width() / 2, height() / 2);
         painter.rotate(d->_delegate->angle());
     }
 
@@ -153,12 +153,17 @@ void QtComponentsCircleProgressPrivate::init()
     _delegate = new QtComponentsCircleProgressDelegate(q);
     _inputColor = QColor("#00BCD4");
     _frontColor = QColor("#E0E0E0");
-    _size = 64;
+    _size = 45;
 
     q->setMaximum(0);
-
+    q->resize(60, 60);
     q->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding,
                                  QSizePolicy::MinimumExpanding));
+
+    QPoint globalPos = q->parentWidget()->mapToGlobal(QPoint(0, 0));
+    const qreal x = globalPos.x() + q->parentWidget()->width() / 4;
+    const qreal y = globalPos.y() + q->parentWidget()->height() / 4;
+    q->move(x, y);
 
     QParallelAnimationGroup *group = new QParallelAnimationGroup(q);
     group->setLoopCount(-1);

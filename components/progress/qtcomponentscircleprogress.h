@@ -1,4 +1,4 @@
-#ifndef QTCOMPONENTSCIRCLEPROGRESS_H
+﻿#ifndef QTCOMPONENTSCIRCLEPROGRESS_H
 #define QTCOMPONENTSCIRCLEPROGRESS_H
 
 #include <QProgressBar>
@@ -16,6 +16,7 @@ class QtComponentsCircleProgress : public QProgressBar
     Q_PROPERTY(int size READ size WRITE setSize)
 
 public:
+
     explicit QtComponentsCircleProgress(QWidget* parent = NULL);
     ~QtComponentsCircleProgress();
 

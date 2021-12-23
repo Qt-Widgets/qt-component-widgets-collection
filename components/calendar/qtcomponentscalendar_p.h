@@ -1,10 +1,11 @@
-#ifndef QTCOMPONENTSCALENDAR_P_H
+﻿#ifndef QTCOMPONENTSCALENDAR_P_H
 #define QTCOMPONENTSCALENDAR_P_H
 
 #include <QtGlobal>
 
 class QtComponentsCalendarWidget;
-class QtC
+class QtComponentsCalendarWidgetStyle;
+class QtComponentsCalendarWidgetTitle;
 
 class QtComponentsCalendarWidgetPrivate
 {
@@ -17,9 +18,11 @@ public:
 
     void init();
 
-    QtComponentsCalendarWidget*const    q_ptr;
-
+    QtComponentsCalendarWidget*const            q_ptr;
+    QtComponentsCalendarWidgetTitle*            _pTitle;
+    QtComponentsCalendarWidgetStyle*            _pStyle;
 };
+
 
 
 

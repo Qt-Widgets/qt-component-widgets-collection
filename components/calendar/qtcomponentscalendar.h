@@ -1,4 +1,4 @@
-#ifndef QTCOMPONENTSCALEMDAR_H
+﻿#ifndef QTCOMPONENTSCALEMDAR_H
 #define QTCOMPONENTSCALEMDAR_H
 
 
@@ -17,13 +17,14 @@ public:
     explicit QtComponentsCalendarWidget(QWidget* parent = NULL);
     ~QtComponentsCalendarWidget();
 
+protected:
+
+    virtual void paintEvent(QPaintEvent * event);
 
 protected:
 
     QtComponentsCalendarWidget(QtComponentsCalendarWidgetPrivate& d, QWidget* parent = NULL);
     const QSharedPointer<QtComponentsCalendarWidgetPrivate> d_ptr;
-
-
 };
 
 
