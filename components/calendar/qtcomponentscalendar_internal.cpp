@@ -5,15 +5,16 @@
 #include <QLabel>
 #include <QPalette>
 #include <QColor>
+#include <QStyleOption>
 #include <QPainter>
-
+#include <QDebug>
 
 QtComponentsCalendarWidgetTitle::QtComponentsCalendarWidgetTitle(QtComponentsCalendarWidget *parent)
     : _pCalendar(parent)
-    , _pLastMonth(new QPushButton(this))
-    , _pLastYear(new QPushButton(this))
-    , _pNextMonth(new QPushButton(this))
-    , _pNextYear(new QPushButton(this))
+    , _LastMonth(new QPushButton(this))
+    , _LastYear(new QPushButton(this))
+    , _NextMonth(new QPushButton(this))
+    , _NextYear(new QPushButton(this))
     , _pText(new QLabel(this))
 {
     Q_ASSERT(parent);
@@ -50,21 +51,23 @@ void QtComponentsCalendarWidgetTitle::init()
     QHBoxLayout* hb = new QHBoxLayout;
     hb->setContentsMargins(12, 2, 12, 2);
     hb->setSpacing(4);
-    hb->addWidget(_pLastYear);
-    hb->addWidget(_pLastMonth);
+    hb->addWidget(_LastYear);
+    hb->addWidget(_LastMonth);
     hb->addStretch();
     hb->addWidget(_pText);
     hb->addStretch();
-    hb->addWidget(_pNextMonth);
-    hb->addWidget(_pNextYear);
+    hb->addWidget(_NextMonth);
+    hb->addWidget(_NextYear);
 
     setLayout(hb);
 
-    connect(_pLastMonth, SIGNAL(clicked()), _pCalendar, SLOT(showPreviousMonth()));
-    connect(_pLastYear, SIGNAL(clicked()), _pCalendar, SLOT(showPreviousYear()));
-    connect(_pNextMonth, SIGNAL(clicked()), _pCalendar, SLOT(showNextMonth()));
-    connect(_pNextYear, SIGNAL(clicked()), _pCalendar, SLOT(showNextYear()));
+    connect(_LastMonth, SIGNAL(clicked()), _pCalendar, SLOT(showPreviousMonth()));
+    connect(_LastYear, SIGNAL(clicked()), _pCalendar, SLOT(showPreviousYear()));
+    connect(_NextMonth, SIGNAL(clicked()), _pCalendar, SLOT(showNextMonth()));
+    connect(_NextYear, SIGNAL(clicked()), _pCalendar, SLOT(showNextYear()));
     connect(_pCalendar, SIGNAL(clicked(const QDate&)), SLOT(setDateText(const QDate&)));
+
+    setDateText(QDate::currentDate());
 }
 
 
@@ -87,4 +90,59 @@ void QtComponentsCalendarWidgetStyle::drawPrimitive(PrimitiveElement element, co
         return;
     }
     QProxyStyle::drawPrimitive(element, option, painter, widget);
+}
+
+QtComponentsCalendarWidgetWeek::QtComponentsCalendarWidgetWeek(QtComponentsCalendarWidget* parent)
+    : QWidget(parent)
+    , _calendar(parent)
+{
+    Q_ASSERT(parent);
+    init();
+}
+
+QtComponentsCalendarWidgetWeek::~QtComponentsCalendarWidgetWeek()
+{
+
+}
+
+void QtComponentsCalendarWidgetWeek::paintEvent(QPaintEvent * event)
+{
+    Q_UNUSED(event);
+
+    const int h = parentWidget()->width();
+    const qreal splt = h / 7;
+
+    QStringList weekList;
+    
+    weekList
+        << QString::fromLocal8Bit("日") << QString::fromLocal8Bit("一") 
+        << QString::fromLocal8Bit("二") << QString::fromLocal8Bit("三")
+        << QString::fromLocal8Bit("四") << QString::fromLocal8Bit("五")
+        << QString::fromLocal8Bit("六");
+
+    QPainter painter(this);
+
+    painter.save();
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(Qt::white);
+    painter.drawRect(rect());
+    painter.restore();
+    QFont font;
+    font.setPixelSize(12);
+    painter.setFont(font);
+    painter.setPen(QPen(QColor("#60627F")));
+    for (int col = 0; col < 7; ++col)
+    {
+        const QRect rect(col * splt, 0, splt, height());
+        painter.drawText(rect, Qt::AlignCenter, weekList[col]);
+    }
+    painter.save();
+    painter.setPen(QPen(QColor("#EBEEF5")));
+    painter.drawLine(rect().bottomLeft(), rect().bottomRight());
+    painter.restore();
+}
+
+void QtComponentsCalendarWidgetWeek::init()
+{
+    setMinimumHeight(30);
 }

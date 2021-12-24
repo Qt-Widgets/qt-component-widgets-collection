@@ -6,6 +6,7 @@
 class QtComponentsCalendarWidget;
 class QtComponentsCalendarWidgetStyle;
 class QtComponentsCalendarWidgetTitle;
+class QtComponentsCalendarWidgetWeek;
 
 class QtComponentsCalendarWidgetPrivate
 {
@@ -21,6 +22,7 @@ public:
     QtComponentsCalendarWidget*const            q_ptr;
     QtComponentsCalendarWidgetTitle*            _pTitle;
     QtComponentsCalendarWidgetStyle*            _pStyle;
+    QtComponentsCalendarWidgetWeek*             _pWeek;
 };
 
 

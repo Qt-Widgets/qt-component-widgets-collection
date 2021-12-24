@@ -40,10 +40,10 @@ private:
     void init();
 
     QtComponentsCalendarWidget*const    _pCalendar;
-    QPushButton*                        _pLastYear;
-    QPushButton*                        _pLastMonth;
-    QPushButton*                        _pNextYear;
-    QPushButton*                        _pNextMonth;
+    QPushButton*                        _LastYear;
+    QPushButton*                        _LastMonth;
+    QPushButton*                        _NextYear;
+    QPushButton*                        _NextMonth;
     QLabel*                             _pText;
 };
 
@@ -57,6 +57,28 @@ inline QDate QtComponentsCalendarWidgetTitle::dateText()const
 {
     return _pCalendar->selectedDate();
 }
+
+class QtComponentsCalendarWidgetWeek : public QWidget
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QtComponentsCalendarWidgetWeek)
+
+public:
+
+    QtComponentsCalendarWidgetWeek(QtComponentsCalendarWidget* parent);
+    ~QtComponentsCalendarWidgetWeek();
+
+protected:
+
+    virtual void paintEvent(QPaintEvent * event);
+
+private:
+    
+    void init();
+
+    QtComponentsCalendarWidget*const        _calendar;
+
+};
 
 class QtComponentsCalendarWidgetStyle : public QProxyStyle
 {

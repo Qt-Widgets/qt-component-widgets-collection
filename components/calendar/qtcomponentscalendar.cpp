@@ -4,24 +4,30 @@
 
 #include <QLayout>
 #include <QLocale>
+#include <QPainter>
 #include <QTextCharFormat>
 
 void QtComponentsCalendarWidgetPrivate::init()
 {
     Q_Q(QtComponentsCalendarWidget);
-    
-    _pTitle = new QtComponentsCalendarWidgetTitle(q);
+
     _pStyle = new QtComponentsCalendarWidgetStyle(q);
 
-    q->setLocale(QLocale(QLocale::Chinese));
+    _pTitle = new QtComponentsCalendarWidgetTitle(q);
+
+    _pWeek = new QtComponentsCalendarWidgetWeek(q);
+
     q->setNavigationBarVisible(false);
     q->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
-    q->setHorizontalHeaderFormat(QCalendarWidget::SingleLetterDayNames);
+    q->setHorizontalHeaderFormat(QCalendarWidget::NoHorizontalHeader);
     q->setStyle(_pStyle);
 
     QTextCharFormat format;
-    format.setForeground(QColor(160, 160, 160));
-    format.setBackground(QColor(255, 255, 255));
+    format.setForeground(QColor("#60627F"));
+    format.setBackground(Qt::white);
+    QFont font;
+    font.setPixelSize(12);
+    format.setFont(font);
 
     q->setHeaderTextFormat(format);
     q->setWeekdayTextFormat(Qt::Saturday, format);
@@ -34,6 +40,7 @@ void QtComponentsCalendarWidgetPrivate::init()
 
     QVBoxLayout *vBodyLayout = qobject_cast<QVBoxLayout *>(q->layout());
     vBodyLayout->insertWidget(0, _pTitle);
+    vBodyLayout->insertWidget(1, _pWeek);
 }
 
 QtComponentsCalendarWidget::~QtComponentsCalendarWidget()

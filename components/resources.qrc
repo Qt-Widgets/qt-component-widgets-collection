@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/calendar/ic_next_month.svg</file>
-        <file>icons/calendar/ic_next_year.svg</file>
-        <file>icons/calendar/ic_prev_month.svg</file>
-        <file>icons/calendar/ic_prev_year.svg</file>
+        <file>icons/calendar/ic_LastMonth.svg</file>
+        <file>icons/calendar/ic_LastYear.svg</file>
+        <file>icons/calendar/ic_NextMonth.svg</file>
+        <file>icons/calendar/ic_NextYear.svg</file>
     </qresource>
 </RCC>

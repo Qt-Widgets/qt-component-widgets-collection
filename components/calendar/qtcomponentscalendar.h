@@ -19,10 +19,6 @@ public:
 
 protected:
 
-    virtual void paintEvent(QPaintEvent * event);
-
-protected:
-
     QtComponentsCalendarWidget(QtComponentsCalendarWidgetPrivate& d, QWidget* parent = NULL);
     const QSharedPointer<QtComponentsCalendarWidgetPrivate> d_ptr;
 };

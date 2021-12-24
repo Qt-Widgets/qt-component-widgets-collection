@@ -1,0 +1,4 @@
+﻿#ifndef __QTCOMPONENTSTHEME_P_H__
+#define __QTCOMPONENTSTHEME_P_H__
+
+#endif  //__QTCOMPONENTSTHEME_P_H__
