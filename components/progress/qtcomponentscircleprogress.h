@@ -31,6 +31,7 @@ public:
 
     virtual QSize sizeHint() const;
 
+
 protected:
 
     QtComponentsCircleProgress(QtComponentsCircleProgressPrivate& d, QWidget* parent);

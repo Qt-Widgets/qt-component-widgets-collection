@@ -6,8 +6,10 @@
 
 #include "components/lib/qtcomponentstheme.h"
 
-class QPixmap;
 class QtComponentsAlert;
+class QtComponentsAlertStyle;
+class QtComponentsAlertDelegate;
+
 
 class QtComponentsAlertPrivate
 {
@@ -22,14 +24,18 @@ public:
     virtual ~QtComponentsAlertPrivate();
 
     QtComponentsAlert*const                 q_ptr;
-
+    QtComponentsAlertStyle*                 _pStyle;
+    QtComponentsAlertDelegate*              _pDelegate;
     Components::AlertStyle                  _alertStyle;
     Components::AlertTextFlag               _alertFlag;
     Components::AlertMsgType                _alertType;
     QString                                 _text;
     QString                                 _description;
     QString                                 _closeText;
-    qreal                                   _opacity;
+    QColor                                  _textColor;
+    QColor                                  _backdropColor;
+    QSize                                   _iconSize;
+    QPixmap                                 _icon;
 };
 
 

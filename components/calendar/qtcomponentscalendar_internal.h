@@ -94,6 +94,7 @@ private:
 
     virtual void drawPrimitive(PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const;
 
+
     QtComponentsCalendarWidget*const        _pCalendar;
 
 };

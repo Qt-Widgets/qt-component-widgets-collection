@@ -4,5 +4,9 @@
         <file>icons/calendar/ic_LastYear.svg</file>
         <file>icons/calendar/ic_NextMonth.svg</file>
         <file>icons/calendar/ic_NextYear.svg</file>
+        <file>icons/alert/ic_error.svg</file>
+        <file>icons/alert/ic_info.svg</file>
+        <file>icons/alert/ic_success.svg</file>
+        <file>icons/alert/ic_warning.svg</file>
     </qresource>
 </RCC>

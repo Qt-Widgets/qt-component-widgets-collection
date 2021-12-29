@@ -17,6 +17,7 @@ void QtComponentsCalendarWidgetPrivate::init()
 
     _pWeek = new QtComponentsCalendarWidgetWeek(q);
 
+    q->setWindowFlags(Qt::FramelessWindowHint);
     q->setNavigationBarVisible(false);
     q->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
     q->setHorizontalHeaderFormat(QCalendarWidget::NoHorizontalHeader);

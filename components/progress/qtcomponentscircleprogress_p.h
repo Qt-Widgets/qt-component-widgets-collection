@@ -1,8 +1,9 @@
-#ifndef QTCOMPONENTSCIRCLEPROGRESS_P_H
+﻿#ifndef QTCOMPONENTSCIRCLEPROGRESS_P_H
 #define QTCOMPONENTSCIRCLEPROGRESS_P_H
 
 #include <QtGlobal>
 #include <QColor>
+
 
 class QtComponentsCircleProgress;
 class QtComponentsCircleProgressDelegate;

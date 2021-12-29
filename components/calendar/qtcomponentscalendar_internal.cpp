@@ -1,5 +1,7 @@
 ﻿#include "qtcomponentscalendar_internal.h"
 
+#include "components/lib/qtcomponentstools.h"
+
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
@@ -75,7 +77,6 @@ QtComponentsCalendarWidgetStyle::QtComponentsCalendarWidgetStyle(QtComponentsCal
     : _pCalendar(parent)
 {
     Q_ASSERT(parent);
-    setParent(parent);
 }
 
 QtComponentsCalendarWidgetStyle::~QtComponentsCalendarWidgetStyle()
@@ -91,6 +92,8 @@ void QtComponentsCalendarWidgetStyle::drawPrimitive(PrimitiveElement element, co
     }
     QProxyStyle::drawPrimitive(element, option, painter, widget);
 }
+
+
 
 QtComponentsCalendarWidgetWeek::QtComponentsCalendarWidgetWeek(QtComponentsCalendarWidget* parent)
     : QWidget(parent)
