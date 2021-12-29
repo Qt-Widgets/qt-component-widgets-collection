@@ -64,7 +64,7 @@ class QtComponentsCenterWidget : public QWidget
 
 public:
 
-    QtComponentsCenterWidget(QtComponentsWidget* parent);
+    QtComponentsCenterWidget(QtComponentsWidgetShadowEffect* parent);
     ~QtComponentsCenterWidget();
 
 protected:
@@ -74,7 +74,7 @@ protected:
 
 private:
 
-    QtComponentsWidget*const            _parent;
+    QtComponentsWidgetShadowEffect*const            _parent;
 
 };
 

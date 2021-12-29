@@ -22,15 +22,15 @@ void QtComponentsWidget::paintEvent(QPaintEvent * event)
 bool QtComponentsWidget::event(QEvent* event)
 {
     Q_D(QtComponentsWidget);
-
-    switch (event->type())
+    QEvent::Type type = event->type();
+    switch (type)
     {
     case QEvent::ParentChange:
     {
         QWidget* widget;
         if (widget == parentWidget())
         {
-            d->_effect->setParent(widget);
+            d->_center->setParent(widget);
         }
         break;
     }
@@ -73,6 +73,6 @@ void QtComponentsWidgetPrivate::init()
 
     _effect = new QtComponentsWidgetShadowEffect(q);
 
-    _center = new QtComponentsCenterWidget(q);
+    _center = new QtComponentsCenterWidget(_effect);
 
 }

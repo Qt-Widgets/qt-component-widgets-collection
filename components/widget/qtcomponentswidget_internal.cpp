@@ -47,7 +47,7 @@ void QtComponentsWidgetShadowEffect::paintEvent(QPaintEvent * event)
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(rect(), QColor("#F0F0F0"));
+    painter.fillRect(rect(), QColor("#FFFFFF"));
     
     if (_offset > 0)
     {
@@ -58,7 +58,7 @@ void QtComponentsWidgetShadowEffect::paintEvent(QPaintEvent * event)
     }
 }
 
-QtComponentsCenterWidget::QtComponentsCenterWidget(QtComponentsWidget* parent)
+QtComponentsCenterWidget::QtComponentsCenterWidget(QtComponentsWidgetShadowEffect* parent)
     : QWidget(parent)
     , _parent(parent)
 {
@@ -78,7 +78,7 @@ bool QtComponentsCenterWidget::eventFilter(QObject * obj, QEvent * event)
 
     if (QEvent::Resize == type || QEvent::Move == type)
     {
-        setGeometry(_parent->rect().adjusted(8, 8, -8, -8));
+        setGeometry(_parent->rect());
     }
 
     return QWidget::eventFilter(obj, event);
