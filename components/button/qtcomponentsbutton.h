@@ -1,0 +1,4 @@
+﻿#ifndef __QTCOMPONENTSBUTTON_H__
+#define __QTCOMPONENTSBUTTON_H__
+
+#endif  //__QTCOMPONENTSBUTTON_H__

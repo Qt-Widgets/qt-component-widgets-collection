@@ -2,6 +2,7 @@
 #define __QTCOMPONENTSTHEME_H__
 
 #include <QObject>
+#include <QPair>
 #include <QSharedPointer>
 
 namespace Components
@@ -36,8 +37,79 @@ namespace Components
         yellow50,
         yellow100,
         red50,
-        red100
+        red100,
+        errorColor,
+        successColor,
+        lineColor,
+        defTextColor,
+        pointTextColor,
+        successPointTextColor,
     };
+
+    enum Variant
+    {
+        VarBase,
+        VarOutline,
+        VarDashed,
+        VarText
+    };
+
+    enum ExpendMode
+    {
+        SingleClick,
+        DoubleClick,
+        NoClick
+    };
+
+    enum UserRoleModel
+    {
+        ExpandRole = Qt::UserRole + 1,
+
+    };
+
+    enum MouseState
+    {
+        DefState,
+        HoverState,
+        PressedState
+    };
+
+    enum TableHeaderType
+    {
+        hID,
+        hCheckBox,
+        hText,
+        hSort,
+        hSearch
+    };
+    typedef QPair<TableHeaderType, QString> _TableHeaderPair;
+
+    enum TableModelType
+    {
+        Checked = Qt::Checked,
+        UnChecked = Qt::Unchecked,
+        ID = 0xF,
+        Freeze,
+        Text,
+        PointText,
+        SuccessPointText,
+        ErrorPointText,
+        ColorText,
+        InitBtn,
+        UpdateBtn,
+        Search,
+        Warn,
+        BanRun
+    };
+    typedef QPair<TableModelType, QString> _TableModelPair;
+
+    typedef struct TagTableHeaderItem
+    {
+        Components::TableHeaderType type;
+        int                         width;
+        QString                     text;
+    }_TableHeaderItem;
+
 
 }
 

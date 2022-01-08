@@ -5,6 +5,7 @@
 #include <QLayout>
 #include <QLocale>
 #include <QPainter>
+#include <QEvent>
 #include <QTextCharFormat>
 
 void QtComponentsCalendarWidgetPrivate::init()
@@ -17,7 +18,6 @@ void QtComponentsCalendarWidgetPrivate::init()
 
     _pWeek = new QtComponentsCalendarWidgetWeek(q);
 
-    q->setWindowFlags(Qt::FramelessWindowHint);
     q->setNavigationBarVisible(false);
     q->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
     q->setHorizontalHeaderFormat(QCalendarWidget::NoHorizontalHeader);
@@ -62,6 +62,7 @@ QtComponentsCalendarWidget::QtComponentsCalendarWidget(QtComponentsCalendarWidge
 {
     d_func()->init();
 }
+
 
 QtComponentsCalendarWidgetPrivate::QtComponentsCalendarWidgetPrivate(QtComponentsCalendarWidget* q)
     : q_ptr(q)

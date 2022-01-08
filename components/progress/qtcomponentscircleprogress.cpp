@@ -159,11 +159,13 @@ void QtComponentsCircleProgressPrivate::init()
     q->resize(60, 60);
     q->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding,
                                  QSizePolicy::MinimumExpanding));
-
-    QPoint globalPos = q->parentWidget()->mapToGlobal(QPoint(0, 0));
-    const qreal x = globalPos.x() + q->parentWidget()->width() / 4;
-    const qreal y = globalPos.y() + q->parentWidget()->height() / 4;
-    q->move(x, y);
+    if (q->parentWidget() != NULL)
+    {
+        QPoint globalPos = q->parentWidget()->mapToGlobal(QPoint(0, 0));
+        const qreal x = globalPos.x() + q->parentWidget()->width() / 4;
+        const qreal y = globalPos.y() + q->parentWidget()->height() / 4;
+        q->move(x, y);
+    }
 
     QParallelAnimationGroup *group = new QParallelAnimationGroup(q);
     group->setLoopCount(-1);

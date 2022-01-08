@@ -19,7 +19,7 @@ void QtComponentsAlert::Success(QWidget* parent, const QString& text, const QStr
     alert->setBackdropColor(QtComponentsTools::inst().getColor("success"));
     alert->setTextColor(QtComponentsTools::inst().getColor("successtext"));
     alert->setAlertMsgType(Components::Success);
-    alert->setPixmap(QtComponentsTools::inst().pixmap("alert", "success", alert->iconSize()));
+    alert->setPixmap(QtComponentsTools::inst().pixmap(QString("alert"), QString("success"), alert->iconSize()));
     alert->from2Center(parent);
     alert->show();
     LOG_DBG << text.toLocal8Bit().data() << description.toLocal8Bit().data();
@@ -37,7 +37,7 @@ void QtComponentsAlert::Warning(QWidget* parent, const QString& text, const QStr
     alert->setBackdropColor(QtComponentsTools::inst().getColor("warning"));
     alert->setTextColor(QtComponentsTools::inst().getColor("warningtext"));
     alert->setAlertMsgType(Components::Warning);
-    alert->setPixmap(QtComponentsTools::inst().pixmap("alert", "warning", alert->iconSize()));
+    alert->setPixmap(QtComponentsTools::inst().pixmap(QString("alert"), QString("warning"), alert->iconSize()));
     alert->from2Center(parent);
     alert->show();
     LOG_WRN << text.toLocal8Bit().data() << description.toLocal8Bit().data();
@@ -55,7 +55,7 @@ void QtComponentsAlert::Info(QWidget* parent, const QString& text, const QString
     alert->setBackdropColor(QtComponentsTools::inst().getColor("info"));
     alert->setTextColor(QtComponentsTools::inst().getColor("infotext"));
     alert->setAlertMsgType(Components::Info);
-    alert->setPixmap(QtComponentsTools::inst().pixmap("alert", "info", alert->iconSize()));
+    alert->setPixmap(QtComponentsTools::inst().pixmap(QString("alert"), QString("info"), alert->iconSize()));
     alert->from2Center(parent);
     alert->show();
     LOG_INF << text.toLocal8Bit().data() << description.toLocal8Bit().data();
@@ -73,7 +73,7 @@ void QtComponentsAlert::Error(QWidget* parent, const QString& text, const QStrin
     alert->setBackdropColor(QtComponentsTools::inst().getColor("error"));
     alert->setTextColor(QtComponentsTools::inst().getColor("errortext"));
     alert->setAlertMsgType(Components::Error);
-    alert->setPixmap(QtComponentsTools::inst().pixmap("alert", "error", alert->iconSize()));
+    alert->setPixmap(QtComponentsTools::inst().pixmap(QString("alert"), QString("error"), alert->iconSize()));
     alert->from2Center(parent);
     alert->show();
     LOG_ERR << text.toLocal8Bit().data() << description.toLocal8Bit().data();
@@ -288,7 +288,7 @@ void QtComponentsAlertPrivate::init()
     _pStyle = new QtComponentsAlertStyle(q);
     _pDelegate = new QtComponentsAlertDelegate(q);
     _iconSize = QSize(15, 15);
-    _icon = QtComponentsTools::inst().pixmap("alert", "success", _iconSize);
+    _icon = QtComponentsTools::inst().pixmap(QString("alert"), QString("success"), _iconSize);
     _backdropColor = QtComponentsTools::inst().getColor("success");
     _textColor = QtComponentsTools::inst().getColor("successtext");
     _alertFlag = Components::AlertCenter;

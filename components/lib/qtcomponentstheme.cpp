@@ -26,6 +26,12 @@ QtComponents::QtComponents(QObject* parent /*= NULL*/)
     setColor("warningtext", Components::yellow100);
     setColor("error", Components::red50);
     setColor("errortext", Components::red100);
+    setColor("errorColor", Components::errorColor);
+    setColor("successColor", Components::successColor);
+    setColor("lineColor", Components::lineColor);
+    setColor("defTextColor", Components::defTextColor);
+    setColor("pointTextColor", Components::pointTextColor);
+    setColor("successPointTextColor", Components::successPointTextColor);
 }
 
 QtComponents::~QtComponents()
@@ -55,7 +61,9 @@ void QtComponents::setColor(const QString& key, Components::Color color)
     static const QColor palette[] = 
     {
         QColor("#F0F9EB"), QColor("#67C23A"), QColor("#F4F4F5"), QColor("#909399"),
-        QColor("#FDF6EC"), QColor("#E6A23C"), QColor("#FEF0F0"), QColor("#F56C6C")
+        QColor("#FDF6EC"), QColor("#E6A23C"), QColor("#FEF0F0"), QColor("#F56C6C"),
+        QColor("#FF0000"), QColor("7D7F8B"), QColor("#E4E4E4"), QColor("#7D7F8B"),
+        QColor("#F9A924"), QColor("#5DB85B")
     };
     d->colors.insert(key, palette[color]);
 }

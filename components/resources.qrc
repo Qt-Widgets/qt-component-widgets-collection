@@ -8,5 +8,12 @@
         <file>icons/alert/ic_info.svg</file>
         <file>icons/alert/ic_success.svg</file>
         <file>icons/alert/ic_warning.svg</file>
+        <file>icons/table/ic_search.svg</file>
+        <file>icons/table/ic_sort.svg</file>
+        <file>icons/table/ic_null.svg</file>
+        <file>icons/table/ic_init.svg</file>
+        <file>icons/table/ic_update.svg</file>
+        <file>icons/list/ic_setting.svg</file>
+        <file>icons/list/ic_warn.svg</file>
     </qresource>
 </RCC>
